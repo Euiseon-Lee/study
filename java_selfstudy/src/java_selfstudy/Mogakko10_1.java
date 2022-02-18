@@ -19,7 +19,6 @@ public class Mogakko10_1 {
 			
 		}
 		
-
 		
 		System.out.println("1부터 "+n+"까지 합은 "+count+"입니다.");
 
