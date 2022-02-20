@@ -1,5 +1,7 @@
 package feb17;
 
+import java.util.Scanner;
+
 public class ReviewTest10 {
 
 	public static void main(String[] args) {
@@ -23,6 +25,33 @@ public class ReviewTest10 {
 		//6 % 4 => 2
 		//6 % 5 => 1
 		//6 % 6 => 0
+		
+		
+		Scanner sc = new Scanner (System.in);
+		System.out.print("판단할 숫자를 입력해주세요: ");
+
+		int judge = sc.nextInt();
+		sc.close();
+		
+		
+		int count = 0;
+		
+		for (int i=judge; i>=1; i--) {
+
+			if (judge % i == 0) {
+				count ++;
+			}
+		}
+		
+		if (count == 2) {
+			System.out.println(judge+"는 소수입니다.");
+		}
+		else {
+			System.out.println(judge+"는 소수가 아닙니다.");
+
+		}
+
+		
 	}
 
 }

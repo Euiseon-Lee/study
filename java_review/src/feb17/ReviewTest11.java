@@ -1,5 +1,7 @@
 package feb17;
 
+import java.util.Scanner;
+
 public class ReviewTest11 {
 
 	public static void main(String[] args) {
@@ -9,6 +11,19 @@ public class ReviewTest11 {
 
 		//ex : 12347754 입력하면 2가 출력되어야 합니다
 		
+		Scanner sc = new Scanner(System.in);
+		System.out.print("숫자를 입력해주세요: ");
+		int num = sc.nextInt();
+		sc.close();
+		int count = 0;
+		
+		for (int i=num; i>0; i /= 10)	{
+			if(i%10 == 7) {
+				count++;
+			}
+		}
+		
+		System.out.println("7의 개수는 "+count+"개 입니다.");
 	}
 
 }

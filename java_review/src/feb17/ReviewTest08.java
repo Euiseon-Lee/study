@@ -1,5 +1,7 @@
 package feb17;
 
+import java.util.Scanner;
+
 public class ReviewTest08 {
 
 	public static void main(String[] args) {
@@ -21,6 +23,25 @@ public class ReviewTest08 {
 		//0분 0초 후 알람이 울립니다.
 		//따르르르릉~
 		
+		Scanner sc = new Scanner (System.in);
+		System.out.print("분을 입력하세요: ");
+		int min = sc.nextInt();
+		System.out.print("초를 입력하세요: ");
+		int sec = sc.nextInt();
+		sc.close();
+		
+		int changeSec = (min * 60) + sec;
+
+		
+		for (int i=changeSec; i>=0; i--) {
+			if (i>0) {
+				System.out.println(i/60+"분 "+i%60+"초 후 알람이 울립니다." );				
+			}
+			else if (i==0) {
+				System.out.println("따르르르릉~~");
+			}
+
+		}
 		
 		
 		
