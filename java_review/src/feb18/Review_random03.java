@@ -9,6 +9,9 @@ public class Review_random03 {
 		//정답을 입력받아 맞았는지 틀렸는지 판정하여 출력
 		
 		
+		Random r = new Random();
+		int a = r.nextInt()
+		
 	}
 
 }

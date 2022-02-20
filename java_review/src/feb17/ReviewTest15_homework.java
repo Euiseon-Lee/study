@@ -19,7 +19,17 @@ public class ReviewTest15_homework {
 		//(3) 30일이 아니라 40일로 기간이 늘어나게 된다면 얼마를 받게되는지 출력하세요
 
 	
+		int money = 1;
+		int total = 0;
+		
+		for (int day = 1; day <=30; day++) {
+			System.out.println(day+"일차: "+money+"원");
+			total += money;
+			money *= 2;
+		}
 	
+		
+		System.out.println("총액 "+total+"원 입니다.");
 	}
 
 }
