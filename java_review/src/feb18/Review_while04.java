@@ -1,5 +1,8 @@
 package feb18;
 
+import java.util.Random;
+import java.util.Scanner;
+
 public class Review_while04 {
 
 	public static void main(String[] args) {
@@ -18,6 +21,39 @@ public class Review_while04 {
 
 		//추가문제
 		//주사위를 1000번 정도 던지면 어떤 숫자가 가장 많이 나오는지 알고 싶습니다. 랜덤을 이용하여 주사위를 1000번 던진 결과를 만들어 낸 뒤 각각의 숫자를 카운트하여 출력
+
+		Random r = new Random();
+		Scanner sc = new Scanner(System.in);
+
+		int com = r.nextInt(1000) + 1;
+		System.out.println("컴퓨터가 1부터 1000 사이의 수 중에서 하나를 골랐습니다");
+
+		int count = 0;
+
+		while(true) {
+			//1회 코드
+			System.out.print("뭘까요? ");
+			int user = sc.nextInt();
+
+			count++;
+
+			if(com > user) {
+				System.out.println("업!");
+			}
+			else if(com < user) {
+				System.out.println("다운!");
+			}
+			else {//com == user
+				System.out.println("정답!");
+				break;
+			}
+		}
+
+		sc.close();
+
+		System.out.println("시도 횟수 : " + count + "번");	
+	
+	
 	}
 
 }
