@@ -31,7 +31,6 @@ public class Review_while04 {
 		int count = 0;
 
 		while(true) {
-			//1회 코드
 			System.out.print("뭘까요? ");
 			int user = sc.nextInt();
 
@@ -53,7 +52,7 @@ public class Review_while04 {
 
 		System.out.println("시도 횟수 : " + count + "번");	
 	
-	
+
 	}
 
 }
