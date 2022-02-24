@@ -1,4 +1,4 @@
-package java_selfstudy;
+package javaSelfstudy;
 
 class Calculator {
 	int x;

@@ -1,4 +1,4 @@
-package java_selfstudy;
+package javaSelfstudy;
 
 public class Mogakko04 {
 	

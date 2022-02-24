@@ -1,4 +1,4 @@
-package java_selfstudy;
+package javaSelfstudy;
 
 public class Mogakko05 {
 	public static void main (String[] args) {
