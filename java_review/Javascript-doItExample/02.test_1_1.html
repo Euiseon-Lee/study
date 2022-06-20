@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script>
+        var bus = 3000;
+        var food = 6000;
+        var drink = 3000;
+
+        var total = bus + food + drink;
+
+        var todayBus = prompt("오늘의 교통비를 입력하세요.", "0");
+        var todayFood = prompt("오늘의 식비를 입력하세요.", "0");
+        var todayDrink = prompt("오늘의 음료비를 입력하세요.", "0");
+
+        var todayTotal = parseInt(todayBus)+parseInt(todayFood)+parseInt(todayDrink);
+
+        var isTotalOk = total >= todayTotal;
+
+        var over = todayTotal - total;
+
+        isTotalOk = isTotalOk ? "돈 관리 잘했어요!" : over+"원 초과";
+
+        document.write(isTotalOk);
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
