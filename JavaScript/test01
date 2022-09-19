@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8"/>
+    </head>
+    <body>
+        <script type="text/javascript">	
+          s1="생활"
+          s2="코딩"
+          s3="-"
+          s4="자바스크립트로 배우는 프로그래밍"
+          s5=s1.concat(s2,s3,s4)
+          alert(s5);
+          alert(s1+','+s2+','+s3+','+s4) // 인자로 전달된 변수들의 값은 변경X
+
+          var stringName = '생활코딩'
+          alert(stringName.charCodeAt(0)); // 해당 문자의 유니코드를 반환 -> 49373 (10진수)
+
+          var stringValue = '생활코딩 - 자바스크립트 레퍼런스';
+          alert(stringValue.indexOf('생활')); // 0
+          alert(stringValue.indexOf('코딩')); // 2
+          alert(stringValue.indexOf('PHP')); // -1, PHP는 stringValue안에 존재하지 않는다
+
+          alert(stringValue.indexOf('자바스크립트',0)); // 7
+          alert(stringValue.indexOf('자바스크립트',2)); // 7, 두번째 인자로 2가 주어지면 탐색의 대상이 '코딩 - 자바스크립트 레퍼런스'로 줄어든다. index 값은 변하지 않는다
+          alert(stringValue.indexOf('자바스크립트',10)); // -1, '크립트 레퍼런스'에는 '자바스크립트'가 없기 때문에 -1을 리턴한다
+
+
+          id = prompt('아이디를 입력해주세요.');
+          if(id=='inia8inia'){
+            password = prompt('비밀번호를 입력해주세요.');
+            if(password==='111111'){
+              alert('인증 성공했습니다.');
+            } else {
+              alert('인증에 실패 했습니다.');
+            }
+          } else {
+            alert('인증에 실패 했습니다.');
+          }
+        </script>
+    </body>
+</html>
