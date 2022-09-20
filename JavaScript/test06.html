@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8"/>
+    </head>
+    <body>
+		  <script>
+        //객체 안에는 함수를 저장할 수 있다
+        var grades1 = {
+            'list': {'egoing': 10, 'k8805': 6, 'sorialgi': 80},
+            'show' : function(){
+                alert('Hello world');
+                }
+        };
+        grades1.show();
+
+
+        //this의 사용
+        var grades2 = {
+            'list': {'egoing': 10, 'k8805': 6, 'sorialgi': 80},
+            'show1' : function(){
+                console.log(this.list);
+            },
+          'show2' : function(){
+              for(var name in this.list){
+            document.write(name+':'+this.list[name]+"<br />");
+            }
+          }
+        };
+        grades2.show1();
+        grades2.show2();
+		  </script>
+    </body>
+</html>
