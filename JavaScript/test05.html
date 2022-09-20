@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8"/>
+    </head>
+    <body>
+        <script>
+			//객체 생성 방법 1
+			var grades1 = {};           //비어있는 객체를 선언
+			grades1['a'] = 10;
+			grades1['bee'] = 6;
+			grades1['cyber'] = 80;
+
+
+			//객체 생성 방법 2
+			var grades2 = new Object();
+			grades2['a'] = 10;
+			grades2['bee'] = 6;
+			grades2['cyber'] = 80;
+
+
+
+
+
+			var grades3 = {'a': 10, 'bee': 6, 'cyber': 80};
+
+			//호출방법 1-1
+			alert(grades3['cyber']);
+
+			//호출방법 1-2 -> 문자열의 결합으로 간주
+			alert(grades3['cy'+'ber']);
+
+			//호출방법 2
+			alert(grades3.cyber);
+
+			//여기서는 문자열의 결합형태로 사용할 수 없다
+			//alert(grades3.'cy'+'ber');
+			
+			
+			
+			var grades4 = {'Ken': 10, 'Jenny': 96, 'Rose': 80};
+			for(key in grades4) {
+				console.log(key);			//이 경우 key값이 출력된다
+			}
+			
+			for(key in grades4) {
+				console.log(grades4[key]);	//이 경우 value값이 출력
+			}
+
+			for(key in grades4) {
+				//목록을 반복문으로 출력
+				document.write("<li>key : "+key+", value : "+grades4[key]+"<br /></li>");
+			}			
+		</script>
+    </body>
+</html>
