@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8"/>
+    </head>
+    <body>
+        <script>
+            var pattern = /a/;
+			console.log(pattern.exec('abcdef')); // ["a"]
+			console.log(pattern.exec('bcdefg')); // null
+			console.log(pattern.test('abcdef')); // true
+			console.log(pattern.test('bcdefg')); // false
+			
+			var pattern2 = /a./; //a 다음에 하나의 문자열이 있는가?
+			console.log(pattern2.exec('abcdef')); // ["ab"]
+			
+			// == RegExp.exec()와 유사한 기능
+			console.log('abcdef'.match(pattern)); // ["a"]
+			console.log('bcdefg'.match(pattern)); // null 
+			
+			//문자열에서 패턴을 검색한 뒤 이를 변경하여 변경한 값을 리턴
+			console.log('abcdef'.replace(pattern, 'A'));  // Abcdef
+			
+			//정규표현식 옵션 -> i (대소문자 구분하지 않고 검색이 가능)
+			var xi = /a/;
+			console.log("Abcde".match(xi)); // null
+			var oi = /a/i;
+			console.log("Abcde".match(oi)); // ["A"];
+			
+			//정규표현식 옵션 -> g (검색된 모든 결과를 리턴)
+			var xg = /a/;
+			console.log("abcdea".match(xg));
+			var og = /a/g;
+			console.log("abcdea".match(og));
+			
+			//본문 중의 URL을 링크 html 태그로 치환
+			var urlPattern = /\b(?:https?):\/\/[a-z0-9-+&@#\/%?=~_|!:,.;]*/gim;
+			var content = '생활코딩 : http://opentutorials.org/course/1 입니다. 네이버 : http://naver.com 입니다. ';
+			var result = content.replace(urlPattern, function(url){
+				return '<a href="'+url+'">'+url+'</a>';
+			});
+			console.log(result);
+			//결과 -> 생활코딩 : <a href="http://opentutorials.org/course/1">http://opentutorials.org/course/1</a> 입니다. 네이버 : <a href="http://naver.com">http://naver.com</a> 입니다.
+
+        </script>
+    </body>
+</html>
