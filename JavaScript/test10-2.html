@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8"/>
+    </head>
+    <body>
+        <script>
+			function cal(mode){
+				var funcs = {
+					'plus' : function(left, right){return left + right},
+					'minus' : function(left, right){return left - right}
+				}
+				return funcs[mode];       //함수를 반환값으로 사용 가능
+			}
+
+
+			//cal 호출 시 funcs 변수의 plus 함수를 호출하고 plus의 인자로 2와 1을 제공
+			alert(cal('plus')(2,1));
+
+
+			alert(cal('minus')(2,1));
+        </script>
+    </body>
+</html>
