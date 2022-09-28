@@ -121,4 +121,4 @@ systemctl list-unit-files | grep httpd
 systemctl enable httpd
 
 
-#http://localhost:80/ 실행 또는 ifconfig로 ip 확인하여 이동
+#ifconfig로 ip 확인하여 http://IP:80/ 실행
