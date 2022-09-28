@@ -85,6 +85,9 @@ else
 fi
 
 
+
+
+#-------------------------------------------------------------
 #/usr/local/src에 들어가서 설치파일이 제대로 설치되었는지 확인
 cd /usr/local/src | ll
 
@@ -99,6 +102,16 @@ ServerName 127.0.0.1:80
 esc
 wq!
 
-
 #Apache 실행코드
 /usr/local/apache/bin/httpd -k start
+
+#port 확인 및 방화벽 open 
+#tcp6 :::80으로 httpd 열려있는지 확인
+#netstat command 설치 == yum -y install net-tools
+netstat -tulpn | grep LISTEN
+
+#포트 80 번 방화벽 개방
+#예상결과: success -> success -> 80/tcp
+firewall-cmd --permanent --zone=public --add-port=80/tcp
+firewall-cmd --reload
+firewall-cmd --list-ports
