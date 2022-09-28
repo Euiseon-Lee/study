@@ -1,4 +1,7 @@
 # 압축파일 푸는 코드 (위치: /LCA/tmp/lib)
+mkdir /LCA/tmp/lib
+mv *.tar.gz /LCA/tmp/lib
+cd /LCA/tmp/lib
 tar -xzvf m4-1.4.19.tar.gz
 tar -xzvf autoconf-2.71.tar.gz
 tar -xzvf automake-1.16.tar.gz
@@ -7,9 +10,8 @@ tar -xzvf apr-util-1.6.1.tar.gz
 tar -xzvf pcre2-10.37.tar.gz
 tar -xzvf httpd-2.4.54.tar.gz
 
-mkdir tar
-mv *.tar.gz ./tar
-
+mkdir /LCA/tmp/tar
+mv *.tar.gz /LCA/tmp/tar
 
 # 의존성 파일인 gcc 설치
 yum groupinstall "Development tools"
@@ -84,12 +86,10 @@ fi
 
 
 #/usr/local/src에 들어가서 설치파일이 제대로 설치되었는지 확인
-cd /usr/local/src
-ll
+cd /usr/local/src || ll
 
 #/usr/local에 들어가서 apache 설치가 되었는지 확인
-cd /usr/local
-ll
+cd /usr/local || ll || grep apache
 
 #Apache 설정 바꾸기
 vi /usr/local/apache/conf/httpd.conf
