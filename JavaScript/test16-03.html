@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8"/>
+    </head>
+    <body>
+        <script>
+			//현재 윈도우의 문서가 위치하는 URL을 알아내는 방법
+			console.log(location.toString(), location.href);
+
+			//location 객체는 URL을 의미에 따라서 별도의 프로퍼티로 제공
+			//기준 주소: https://www.notion.so/3c7a94cee1064955882c59b07551de92
+			console.log(location.protocol);		//http:
+			console.log(location.host);			//www.notion.so (==네트워크에 연결되어 있는 컴퓨터를 식별)
+			console.log(location.port);			//컴퓨터에서 돌아가는 소프트웨어 식별
+			console.log(location.pathname);		//3c7a94cee1064955882c59b07551de92 (서버 애플리케이션이 가진 특정 정보)
+			console.log(location.search); 		//애플리케이션에 전달한 값
+			console.log(location.hash);			//특정 위치를 구분하는 식별자
+
+			//URL 변경 == 해당 주소로 이동
+			location.href = 'https://opentutorials.org/course/1375/6634';
+			location = 'https://opentutorials.org/course/1375/6634';
+
+			//새로고침
+			location.reload();
+        </script>
+    </body>
+</html>
