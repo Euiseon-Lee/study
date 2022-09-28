@@ -94,8 +94,9 @@ cd /usr/local || ll || grep apache
 #Apache 설정 바꾸기
 vi /usr/local/apache/conf/httpd.conf
 /ServerName www.example.com:80\
-cc
+yy || p || cc
 ServerName 127.0.0.1:80
+esc
 wq!
 
 
