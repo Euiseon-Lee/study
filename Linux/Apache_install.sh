@@ -119,7 +119,7 @@ firewall-cmd --permanent --zone=public --add-port=80/tcp
 firewall-cmd --reload
 firewall-cmd --list-ports
 
-#서비스 작동여부 확인 및 작동시키기 -> 수동설치 시 사용 
+#서비스 작동여부 확인 및 작동시키기 -> 수동설치 시 사용불가
 #systemctl list-unit-files | grep httpd
 #systemctl enable httpd
 
