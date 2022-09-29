@@ -105,6 +105,9 @@ wq!
 #Apache 실행코드
 /usr/local/apache/bin/httpd -k start
 
+#실행확인 코드
+ps -ef | grep apache
+
 #port 확인 및 방화벽 open 
 #tcp6 :::80으로 httpd 열려있는지 확인
 #netstat command 설치 == yum -y install net-tools
