@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<body>
+<ul>
+    <li>HTML</li>
+    <li class="active">CSS</li>
+    <li class="active">JavaScript</li>
+</ul>
+<script>
+	//class이름으로 대상 객체를 지정 -> class 이름이 'active'인 요소
+    var lis = document.getElementsByClassName('active');
+    for(var i=0; i < lis.length; i++){
+        lis[i].style.color='red';   
+    }
+</script>
+</body>
+</html>
