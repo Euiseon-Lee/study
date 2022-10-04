@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8"/>
+    </head>
+    <body>
+		<a id="target" href="https://www.naver.com/">NAVER</a>
+		
+		
+		<script>
+		var t = document.getElementById('target');
+		console.log(t.getAttribute('href')); 			//https://www.naver.com/
+		t.setAttribute('title', 'opentutorials.org'); 	// title 속성의 값을 설정
+		console.log(t.hasAttribute('title')); // true, title 속성의 존재여부를 확인
+		t.removeAttribute('title'); 					// title 속성을 제거한다.
+		console.log(t.hasAttribute('title')); // false, title 속성의 존재여부를 확인
+		
+		</script>
+    </body>
+</html>
