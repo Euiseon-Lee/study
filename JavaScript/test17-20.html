@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8"/>
+    </head>
+    <body>
+		<ul>
+			<li class="marked">html</li>
+			<li>css</li>
+			<li id="active">JavaScript
+				<ul>
+					<li>JavaScript Core</li>
+					<li class="marked1">DOM</li>
+					<li class="marked2">BOM</li>
+					<li class="marked3">GOM</li>
+					<li class="marked4">SOM</li>
+				</ul>
+			</li>
+		</ul>
+		<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+		<script>
+		
+			//"active"라는 id를 가진 요소의 하위 클래스 이름이 "marked"인 요소
+			//1. selector context
+			$( ".marked1", "#active").css( "background-color", "salmon" );
+			$( "#active .marked2").css( "background-color", "lightgreen" );
+			
+			//2. .find()
+			$( "#active").find('.marked3').css( "background-color", "skyblue" );
+			
+			// .find()는 체인을 유지하면서 작업 대상을 변경하고 싶을 때 사용
+			$('#active').css('text-decoration','underline').find('.marked4').css( "background-color", "yellow" );
+
+		</script>
+    </body>
+</html>
