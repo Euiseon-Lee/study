@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8"/>
+    </head>
+    <body>
+		<a id="target" href="https://www.naver.com/">NAVER</a>
+		<script src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
+		<script>
+			var t = $('#target');
+			console.log(t.attr('href')); 			//https://www.naver.com/
+			t.attr('title', 'naver.com/'); 			// title 속성의 값을 설정한다.
+			t.removeAttr('title'); 					// title 속성을 제거한다.
+		</script>
+    </body>
+</html>
