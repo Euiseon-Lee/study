@@ -100,8 +100,8 @@ vi /usr/local/apache/conf/extra/uriworkermap.properties
 vi /usr/local/apache/conf/httpd.conf
 
 	#Apache 와 TOMCAT 의 Dcument(웹 페이지) 위치를 맞춰주기 위한 작업
-	DocumentRoot "/LCA/LCM/webapps/ROOT“ # webapps 경로에 따라 다름
-    <Directory "/LCA/LCM/webapps/ROOT“>     # webapps 경로에 따라 다름
+	DocumentRoot "/LCA/LCM/webapps/ROOT" # webapps 경로에 따라 다름
+    <Directory "/LCA/LCM/webapps/ROOT">     # webapps 경로에 따라 다름
 		….
 	</Directory>
 	
