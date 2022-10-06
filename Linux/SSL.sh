@@ -29,7 +29,7 @@ vi /etc/sysconfig/selinux
 
 chcon -t cert_t /usr/local/apache/conf/파일명.crt
 chcon -t cert_t /usr/local/apache/conf/파일명.key
-#적용X chcon -t cert_t /usr/local/apache/conf/파일명.crt
+#적용X chcon -t cert_t /usr/local/apache/conf/파일명CA.crt
 
 
 #SSL(HTTPS) 포트(443) 방화벽 열기
