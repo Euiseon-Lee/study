@@ -51,7 +51,7 @@ vi /usr/share/tomcat/conf/server.xml
         clientAuth="false" sslEnabledProtocols="TLSv1.2"
         <!-- 파일 위치 및 암호 -->
         keystoreFile="${user.home}/webapps/파일명.keystore" 
-        keystorePass="#비밀번호" 
+        keystorePass="비밀번호" 
         <!-- 지원 암호화 방법 -->
         ciphers="TLS_RSA_WITH_AES_128_GCM_SHA256,TLS_RSA_WITH_AES_256_GCM_SHA384,TLS_DHE_RSA_WITH_AES_128_GCM_SHA256,TLS_DHE_RSA_WITH_AES_256_GCM_SHA384,TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256,TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384" />
 
