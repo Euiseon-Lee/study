@@ -13,9 +13,12 @@ tar -xzvf httpd-2.4.54.tar.gz
 mkdir /LCA/tmp/tar
 mv *.tar.gz /LCA/tmp/tar
 
-# 의존성 파일인 gcc 설치
-yum groupinstall "Development tools"
 
+# 의존성 파일인 gcc 설치
+#yum groupinstall "Development tools"
+
+#pcre 의존성 설치
+#yum install pcre-devel -y
 
 
 # 압축파일 순서대로 설치
@@ -67,7 +70,6 @@ fi
 
 #pcre
 cd /LCA/tmp/lib/pcre2-10.37
-yum install pcre-devel -y           #pcre 의존성 설치
 ./configure --prefix=/usr/local/src/pcre2-10.37 --with-apr=/usr/local/src/apr-1.7.0 --with-apr=/usr/local/src/apr-util-1.6.1
 if [[ "$?" -ne 0 ]]
 then exit;
