@@ -14,6 +14,7 @@ vi /usr/local/apache/conf/httpd.conf
 
 #apache 설치경로의 httpd-ssl.conf 설정값 수정
 vi /usr/local/apache/conf/httpd-ssl.conf
+#또는 /usr/local/apache/conf/extra/httpd-ssl.conf
 
     DocumentRoot "/LCA/LCM/webapps/ROOT"  #webapps 경로에 따라 다름
     ServerName localhost
