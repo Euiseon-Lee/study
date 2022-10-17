@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8"/>
+    </head>
+	<body id="start">
+		<ul>
+			<li><a href="./생활코딩기초/test17-01.html">html</a></li> 
+			<li><a href="./생활코딩기초/test17-02.html">css</a></li>
+			<li><a href="./생활코딩기초/test17-03.html">JavaScript</a>
+				<ul>
+					<li><a href="./생활코딩기초/test17-04.html">JavaScript Core</a></li>
+					<li><a href="./생활코딩기초/test17-05.html">DOM</a></li>
+					<li><a href="./생활코딩기초/test17-06.html">BOM</a></li>
+				</ul>
+			</li>
+		</ul>
+		<script>
+			//Node 관계 API
+			var s = document.getElementById('start');
+			console.log(1, s.firstChild); 		// #text ==> 공백이나 줄바꿈 문자가 있어서!
+			var ul = s.firstChild.nextSibling
+			console.log(2, ul);					// <ul>...</ul>
+			console.log(3, ul.nextSibling); 	// #text ==> 공백이나 줄바꿈 문자가 있어서!
+			console.log(4, ul.nextSibling.nextSibling); // <script>...</>
+			console.log(5, ul.childNodes); 		// text, li, text, li, text, li, text
+			console.log(6, ul.childNodes[1]); 	// 첫번째 child == li(html)
+			console.log(7, ul.parentNode); 		// body
+			console.log(8, start.childNodes); 	// NodeList(4) [text, ul, text, script]
+			
+			//Node 종류 API
+			console.log(body.firstChild.nodeName);                //"#text"
+			console.log(body.firstChild.nextSibling.nodeName);    //"ul"
+		</script>
+	</body>
+</html>
