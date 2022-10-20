@@ -23,20 +23,17 @@ vi INSTALL_PG14.4.sh
 		#1-1-1. DB data 경로(/LCA/LCM/DB/data) 확인 및 생성 -> DB 설정 및 실제 데이터를 관리하고 있는 폴더
 		#1-1-2. DB 사용 PORT(default 5432) 방화벽 열기		
 	#1-2. RPM 파일을 이용한 설치(모든 의존성 파일 포함)
-	
-	
+		
 	
 #2. shell 파일 실행
 sh INSTALL_PG14.4.sh
 
-	
 	
 #3. Postgres 환경변수 설정 (DB 시작/종료 계정을 root 계정으로 했을 경우)
 vi /root/.bash_profile 		#기본 포트 변경 시 설정 필요
 
 #변경된 설정이 바로 적용되지 않는 경우
 source /root/.bash_profile
-
 
 
 #4.Postgres 설정 변경 -> postgresql.conf
@@ -52,15 +49,16 @@ systemctl start postgresql-14
 
 
 #5. Postgres 접근방법 설정 변경 -> pg_hba.conf
-#METHOD 변경: trust(비밀번호 입력없이 접근 가능) -> scram-sha-256(비밀번호 입력 후 접근 가능)
+#METHOD 변경: TYPE == local
+#trust(비밀번호 입력없이 접근 가능) -> scram-sha-256(비밀번호 입력 후 접근 가능)
+#METHOD를 scram-sha-256으로 변경한 뒤 psql 명령어 실행 시 암호를 입력하게 됨
 vi /LCA/LCM/DB/data/pg_hba.conf
 
+
+#PG 작동 코드
 systemctl stop postgresql-14
 systemctl restart postgresql-14
 systemctl start postgresql-14
-
-#METHOD를 scram-sha-256으로 변경한 뒤 psql 명령어 실행 시 암호를 입력하게 됨
-
 
 
 #6. Postgres 서비스(daemon) 등록
