@@ -8,6 +8,8 @@ yum -y install python3-rpm-generators
 
 #사전에 만들어 둔 shell 파일을 실행하여 설치함
 #1. shell 파일 실행 전 설치를 할 계정을 설정해야함 => root 계정으로
+cd /LCA/tmp/lib/PCM_SETUP
+vi INSTALL_PG14.4.sh
 /INST_TYPE
     INST_TYPE="root"
     #INST_TYPE="postgres"
