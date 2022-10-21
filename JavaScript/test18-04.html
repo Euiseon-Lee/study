@@ -13,9 +13,16 @@
 		<script>
 			function callAppendChild(){
 				var target = document.getElementById('target');
+				//노드를 생성하는 코드
+				//1. <li>라는 노드를 생성
 				var li = document.createElement('li');
+				//2. <li>에 추가할 텍스트를 생성
 				var text = document.createTextNode('JavaScript');
+				
+				//생성된 노드를 추가하는 코드
+				//<li> 엘리먼트의 자식으로 제일 끝에 text를 추가
 				li.appendChild(text);
+				//<ul> 엘리먼트의 자식으로 제일 끝에 <li>를 추가
 				target.appendChild(li);
 			}
 		 
@@ -24,6 +31,9 @@
 				var li = document.createElement('li');
 				var text = document.createTextNode('jQuery');
 				li.appendChild(text);
+				
+				//target.firstChild == <ul>엘리먼트는 바로 뒤의 공백을 지칭
+				//따라서 공백의 앞쪽에 <li>jQuery</li>를 추가하게 된다
 				target.insertBefore(li, target.firstChild);
 			}
 		</script>
