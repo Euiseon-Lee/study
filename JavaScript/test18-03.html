@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<body id="start">
+	<ul>
+		<li><a href="./생활코딩기초/test17-01.html">html</a></li> 
+		<li><a href="./생활코딩기초/test17-02.html">css</a></li>
+		<li><a href="./생활코딩기초/test17-03.html">JavaScript</a>
+			<ul>
+				<li><a href="./생활코딩기초/test17-04.html">JavaScript Core</a></li>
+				<li><a href="./생활코딩기초/test17-05.html">DOM</a></li>
+				<li><a href="./생활코딩기초/test17-06.html">BOM</a></li>
+			</ul>
+		</li>
+	</ul>
+<script>
+	function traverse(target, callback){
+		if(target.nodeType === 1){		//만약에 element_node라면
+			//if(target.nodeName === 'A')	만약에 a tag라면
+			callback(target);
+			var c = target.childNodes;
+			for(var i=0; i<c.length; i++){
+				traverse(c[i], callback);       
+			}   
+		}
+	}
+	//body tag를 포함한 하위의 모든 html 태그를 하나씩 조회한 것을 첫번째 인자로 제공
+	//각 태그의 순번이 올 때마다 익명함수 function(elem)를 작동 -> 콘솔창에 출력
+	traverse(document.getElementById('start'), function(elem){
+		console.log(elem);
+		if(elem.nodeName === 'A'){
+			elem.style.background = 'yellow';	//ul이나 li는 배경색이 변하지 않음
+		}
+	});
+</script>
+</body>
+</html>
