@@ -8,7 +8,7 @@ class Solution {
   제한사항
     3 ≤ n ≤ 1,000,000
 
-  주의!!!!!!!!! x와 n을 혼동하지 
+  주의!!!!!!!!! x와 n을 혼동하지 말 것
   */
     public int solution(int n) {
 		int answer = 0;
