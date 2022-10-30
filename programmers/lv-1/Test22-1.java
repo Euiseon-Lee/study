@@ -8,21 +8,20 @@ class Solution {
         n은 길이 10,000이하인 자연수입니다.
    */ 
     public String solution(int n) {
-        
-        
-    // 1번
-    // 처리시간 1.14ms ~ 53.03ms
-		String odd = "수";
-		String even = "박";
-  	String answer = "";
+               
+   	// 1번
+    	// 처리시간 1.14ms ~ 53.03ms
+	String odd = "수";
+	String even = "박";
+	String answer = "";
 
-		for(int i=1; i<=n; i++) {
-			if (i%2==1) {
-				answer += odd;
-			} else {
-				answer += even;
-			}
-		}    
+	for(int i=1; i<=n; i++) {
+		if (i%2==1) {
+			answer += odd;
+		} else {
+			answer += even;
+		}
+	}    
         return answer;        
     }
 }
