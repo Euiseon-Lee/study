@@ -14,15 +14,15 @@ class Solution {
       // 처리시간 1.06ms ~ 1.93ms
      	StringBuffer repeat = new StringBuffer();
 
-		for (int i = 1; i<=10000; i++) {
-			if(i%2==1) {
-				repeat.append("수");
-			} else {
-				repeat.append("박");
-			}
+	for (int i = 1; i<=10000; i++) {
+		if(i%2==1) {
+			repeat.append("수");
+		} else {
+			repeat.append("박");
 		}
+	}
 
-		return repeat.substring(0, n);
+	return repeat.substring(0, n);
         
     }
 }
