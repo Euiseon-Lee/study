@@ -1,2 +1,2 @@
 # study
-Code Repository not for projects
+Code Repository for self-study
