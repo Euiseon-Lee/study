@@ -19,7 +19,7 @@ class Solution {
                 if(i%j==0) {
                     cnt++;
                 }
-                if(cnt>=3) {
+                if(cnt==3) {
                     st.add(Integer.valueOf(i));
                     break;
                 }
