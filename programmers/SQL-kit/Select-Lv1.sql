@@ -18,6 +18,23 @@ SELECT NAME, DATETIME FROM ANIMAL_INS ORDER BY ANIMAL_ID DESC;
 
 /*
 문제 설명
+ANIMAL_INS 테이블은 동물 보호소에 들어온 동물의 정보를 담은 테이블입니다. ANIMAL_INS 테이블 구조는 다음과 같으며, ANIMAL_ID, ANIMAL_TYPE, DATETIME, INTAKE_CONDITION, NAME, SEX_UPON_INTAKE는 각각 동물의 아이디, 생물 종, 보호 시작일, 보호 시작 시 상태, 이름, 성별 및 중성화 여부를 나타냅니다.
+
+NAME	TYPE	NULLABLE
+ANIMAL_ID	VARCHAR(N)	FALSE
+ANIMAL_TYPE	VARCHAR(N)	FALSE
+DATETIME	DATETIME	FALSE
+INTAKE_CONDITION	VARCHAR(N)	FALSE
+NAME	VARCHAR(N)	TRUE
+SEX_UPON_INTAKE	VARCHAR(N)	FALSE
+
+동물 보호소에 들어온 동물 중 아픈 동물1의 아이디와 이름을 조회하는 SQL 문을 작성해주세요. 이때 결과는 아이디 순으로 조회해주세요.
+*/
+-- 코드를 입력하세요
+SELECT ANIMAL_ID, NAME FROM ANIMAL_INS WHERE INTAKE_CONDITION = 'Sick' ORDER BY ANIMAL_ID ASC;
+
+/*
+문제 설명
 DEVELOPER_INFOS 테이블은 개발자들의 프로그래밍 스킬 정보를 담은 테이블입니다. DEVELOPER_INFOS 테이블 구조는 다음과 같으며, ID, FIRST_NAME, LAST_NAME, EMAIL, SKILL_1, SKILL_2, SKILL_3는 각각 ID, 이름, 성, 이메일, 첫 번째 스킬, 두 번째 스킬, 세 번째 스킬을 의미합니다.
 
 NAME	TYPE	UNIQUE	NULLABLE
@@ -57,6 +74,26 @@ TOTAL_ORDER	INT(N)	FALSE
 SELECT FLAVOR
   FROM FIRST_HALF 
  ORDER BY TOTAL_ORDER DESC, SHIPMENT_ID ASC;
+
+/*
+문제 설명
+다음은 종합병원에 등록된 환자정보를 담은 PATIENT 테이블입니다. PATIENT 테이블은 다음과 같으며 PT_NO, PT_NAME, GEND_CD, AGE, TLNO는 각각 환자번호, 환자이름, 성별코드, 나이, 전화번호를 의미합니다.
+
+Column name	Type	Nullable
+PT_NO	VARCHAR(10)	FALSE
+PT_NAME	VARCHAR(20)	FALSE
+GEND_CD	VARCHAR(1)	FALSE
+AGE	INTEGER	FALSE
+TLNO	VARCHAR(50)	TRUE
+
+문제
+PATIENT 테이블에서 12세 이하인 여자환자의 환자이름, 환자번호, 성별코드, 나이, 전화번호를 조회하는 SQL문을 작성해주세요. 이때 전화번호가 없는 경우, 'NONE'으로 출력시켜 주시고 결과는 나이를 기준으로 내림차순 정렬하고, 나이 같다면 환자이름을 기준으로 오름차순 정렬해주세요.
+*/
+-- 코드를 입력하세요
+SELECT PT_NAME, PT_NO, GEND_CD, AGE, COALESCE(TLNO, 'NONE')
+  FROM PATIENT 
+ WHERE GEND_CD = 'W' AND AGE < 13
+ ORDER BY AGE DESC, PT_NAME ASC;
 
 
 /*
