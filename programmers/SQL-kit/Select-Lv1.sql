@@ -33,6 +33,50 @@ SEX_UPON_INTAKE	VARCHAR(N)	FALSE
 -- 코드를 입력하세요
 SELECT ANIMAL_ID, NAME FROM ANIMAL_INS WHERE INTAKE_CONDITION = 'Sick' ORDER BY ANIMAL_ID ASC;
 
+
+/*
+문제 설명
+FIRST_HALF 테이블은 아이스크림 가게의 상반기 주문 정보를 담은 테이블입니다.FIRST_HALF 테이블 구조는 다음과 같으며, SHIPMENT_ID, FLAVOR, TOTAL_ORDER는 각각 아이스크림 공장에서 아이스크림 가게까지의 출하 번호, 아이스크림 맛, 상반기 아이스크림 총주문량을 나타냅니다.
+
+NAME	TYPE	NULLABLE
+SHIPMENT_ID	INT(N)	FALSE
+FLAVOR	VARCHAR(N)	FALSE
+TOTAL_ORDER	INT(N)	FALSE
+
+문제
+상반기에 판매된 아이스크림의 맛을 총주문량을 기준으로 내림차순 정렬하고 총주문량이 같다면 출하 번호를 기준으로 오름차순 정렬하여 조회하는 SQL 문을 작성해주세요.
+*/
+-- 코드를 입력하세요
+SELECT FLAVOR
+  FROM FIRST_HALF 
+ ORDER BY TOTAL_ORDER DESC, SHIPMENT_ID ASC;
+
+
+/*
+문제 설명
+다음은 어느 한 서점에서 판매중인 도서들의 도서 정보(BOOK) 테이블입니다.
+
+BOOK 테이블은 각 도서의 정보를 담은 테이블로 아래와 같은 구조로 되어있습니다.
+
+Column name	Type	Nullable	Description
+BOOK_ID	INTEGER	FALSE	도서 ID
+CATEGORY	VARCHAR(N)	FALSE	카테고리 (경제, 인문, 소설, 생활, 기술)
+AUTHOR_ID	INTEGER	FALSE	저자 ID
+PRICE	INTEGER	FALSE	판매가 (원)
+PUBLISHED_DATE	DATE	FALSE	출판일
+
+문제
+BOOK 테이블에서 2021년에 출판된 '인문' 카테고리에 속하는 도서 리스트를 찾아서 도서 ID(BOOK_ID), 출판일 (PUBLISHED_DATE)을 출력하는 SQL문을 작성해주세요.
+결과는 출판일을 기준으로 오름차순 정렬해주세요.
+*/
+-- 코드를 입력하세요
+SELECT BOOK_ID, TO_CHAR(PUBLISHED_DATE, 'YYYY-MM-DD') AS PUBLISHED_DATE
+  FROM BOOK
+ WHERE TO_CHAR(PUBLISHED_DATE, 'YYYY') = '2021'
+   AND CATEGORY = '인문'
+ ORDER BY PUBLISHED_DATE ASC;
+
+
 /*
 문제 설명
 DEVELOPER_INFOS 테이블은 개발자들의 프로그래밍 스킬 정보를 담은 테이블입니다. DEVELOPER_INFOS 테이블 구조는 다음과 같으며, ID, FIRST_NAME, LAST_NAME, EMAIL, SKILL_1, SKILL_2, SKILL_3는 각각 ID, 이름, 성, 이메일, 첫 번째 스킬, 두 번째 스킬, 세 번째 스킬을 의미합니다.
@@ -57,23 +101,6 @@ SELECT ID, EMAIL, FIRST_NAME, LAST_NAME
  WHERE SKILL_1 || SKILL_2 || SKILL_3 LIKE '%Python%'
  ORDER BY ID ASC;
 
-
-/*
-문제 설명
-FIRST_HALF 테이블은 아이스크림 가게의 상반기 주문 정보를 담은 테이블입니다.FIRST_HALF 테이블 구조는 다음과 같으며, SHIPMENT_ID, FLAVOR, TOTAL_ORDER는 각각 아이스크림 공장에서 아이스크림 가게까지의 출하 번호, 아이스크림 맛, 상반기 아이스크림 총주문량을 나타냅니다.
-
-NAME	TYPE	NULLABLE
-SHIPMENT_ID	INT(N)	FALSE
-FLAVOR	VARCHAR(N)	FALSE
-TOTAL_ORDER	INT(N)	FALSE
-
-문제
-상반기에 판매된 아이스크림의 맛을 총주문량을 기준으로 내림차순 정렬하고 총주문량이 같다면 출하 번호를 기준으로 오름차순 정렬하여 조회하는 SQL 문을 작성해주세요.
-*/
--- 코드를 입력하세요
-SELECT FLAVOR
-  FROM FIRST_HALF 
- ORDER BY TOTAL_ORDER DESC, SHIPMENT_ID ASC;
 
 /*
 문제 설명
