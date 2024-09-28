@@ -106,6 +106,27 @@ SELECT FLAVOR
 
 /*
 문제 설명
+다음은 어느 의류 쇼핑몰에 가입한 회원 정보를 담은 USER_INFO 테이블입니다. USER_INFO 테이블은 아래와 같은 구조로 되어있으며 USER_ID, GENDER, AGE, JOINED는 각각 회원 ID, 성별, 나이, 가입일을 나타냅니다.
+
+Column name	Type	Nullable
+USER_ID	INTEGER	FALSE
+GENDER	TINYINT(1)	TRUE
+AGE	INTEGER	TRUE
+JOINED	DATE	FALSE
+GENDER 컬럼은 비어있거나 0 또는 1의 값을 가지며 0인 경우 남자를, 1인 경우는 여자를 나타냅니다.
+
+문제
+USER_INFO 테이블에서 2021년에 가입한 회원 중 나이가 20세 이상 29세 이하인 회원이 몇 명인지 출력하는 SQL문을 작성해주세요.
+*/
+-- 코드를 입력하세요
+SELECT COUNT(USER_ID) AS USERS
+  FROM USER_INFO
+ WHERE TO_CHAR(JOINED, 'YYYY') = '2021'
+   AND AGE BETWEEN 20 AND 29;
+
+
+/*
+문제 설명
 다음은 어느 한 서점에서 판매중인 도서들의 도서 정보(BOOK) 테이블입니다.
 
 BOOK 테이블은 각 도서의 정보를 담은 테이블로 아래와 같은 구조로 되어있습니다.
@@ -144,7 +165,6 @@ SKILL_3	VARCHAR(N)	N	Y
 
 문제
 DEVELOPER_INFOS 테이블에서 Python 스킬을 가진 개발자의 정보를 조회하려 합니다. Python 스킬을 가진 개발자의 ID, 이메일, 이름, 성을 조회하는 SQL 문을 작성해 주세요.
-
 결과는 ID를 기준으로 오름차순 정렬해 주세요.
 */
 -- 코드를 작성해주세요
