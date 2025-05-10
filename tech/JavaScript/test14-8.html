@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8"/>
+    </head>
+    <body>
+        <script>
+			//상속 후 새로운 기능을 추가하는 법
+			//상속을 하는 객체의 속성을 변경하면 상속 받는 객체들의 속성이 동시에 바뀐다
+			function Person(name){
+				this.name = name;
+			}
+			Person.prototype.name=null;
+			Person.prototype.introduce = function(){
+				return 'My name is '+this.name; 
+			}
+			 
+			function Programmer(name){
+				this.name = name;
+			}
+			Programmer.prototype = new Person();
+
+			//Programmer는 Person의 기능을 가지고 있으면서 
+			//Person이 가지고 있지 않은 기능인 메소드 coding
+			Programmer.prototype.coding = function(){
+				return "Hello world";
+			}
+
+
+			function Designer(name){
+				this.name = name;
+			}
+			Designer.prototype = new Person();
+			Designer.prototype.design = function(){
+				return "beautiful design";
+			}
+
+			 
+			var p1 = new Programmer('inia');
+			document.write(p1.introduce()+"<br />");
+			document.write(p1.coding()+"<br />");
+
+			var p2 = new Designer('iniaa');
+			document.write(p2.introduce()+"<br />");
+			document.write(p2.design()+"<br />");
+        </script>
+    </body>
+</html>

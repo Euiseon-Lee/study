@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8"/>
+    </head>
+    <body>
+        <script>
+			Object.prototype.contain = function(neddle) {
+				for(var name in this){
+					if(this[name] === neddle){
+						return true;
+					}
+				}
+				return false;
+			}
+			var o = {'name':'egoing', 'city':'seoul'};
+			var a = ['egoing','leezche','grapittie'];
+			
+			for(var name in o){
+				//Object의 프로퍼티 -> .hasOwnProperty
+				//특정 객체의 프로퍼티(key 값)의 존재를 확인하여 true/false로 반환
+				//상속한 프로퍼티와 직접 정의한 프로퍼티를 구분할 수 있음
+				if(o.hasOwnProperty(name)){
+					document.write(name+'</br>');
+				}
+				
+			}
+        </script>
+    </body>
+</html>

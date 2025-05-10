@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8"/>
+    </head>
+    <body>
+        <script>
+			//prototype는 객체와 객체를 연결하는 체인의 역할
+			//prototype chain의 관계성을 보여줌
+			function Ultra(){}
+			Ultra.prototype.ultraProp = true;
+			 
+			function Super(){}
+			Super.prototype = new Ultra();
+			 
+			function Sub(){}
+			Sub.prototype = new Super();
+			Sub.prototype.ultraProp = 2;
+			 
+			var o = new Sub();
+			//o.ultraProp = 1;	이 값이 있으면 Sub.prototype.ultraProp값 보다 이 값을 먼저 사용
+			console.log(o.ultraProp);
+        </script>
+    </body>
+</html>

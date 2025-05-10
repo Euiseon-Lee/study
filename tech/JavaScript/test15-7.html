@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8"/>
+    </head>
+    <body>
+        <script>
+			//복제
+			var a = 1;
+			var b = a;		//원시데이터 -> 복제가 발생
+			b = 2;
+			console.log(a); // 1
+
+
+			//참조
+			var c = {'id':1};
+			var d = c;			//참조(reference) == 변수 c와 d에 담긴 객체가 서로 같음
+			d.id = 2;
+			console.log(c.id);  // 2
+
+
+
+			var e = {'id':1};
+			var f = e;			//참조
+			f = {'id':2};		//새로운 객체를 만들어서 변수 f에 할당 (동일한 객체를 가리키지 않음)
+			console.log(e.id);  // 1
+
+        </script>
+    </body>
+</html>
