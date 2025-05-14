@@ -9,7 +9,7 @@ The structure separates algorithm problem-solving from general technical practic
 
 Includes algorithm problem-solving files.
 
-Both **Baekjoon** and **Programmers** directories are managed through an automatic commit system using the **default version of [BaekjoonHub](https://github.com/BaekjoonHub/BaekjoonHub)**.
+Both **Baekjoon** and **Programmers** directories are managed through an automatic commit system using the **customized version of [BaekjoonHub](https://github.com/BaekjoonHub/BaekjoonHub)**.
 
 <br>
 
