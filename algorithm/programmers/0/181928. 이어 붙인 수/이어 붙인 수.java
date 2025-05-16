@@ -1,15 +1,40 @@
 class Solution {
     public int solution(int[] num_list) {
-        int odd = 0, even = 0, oddDigit = 0, evenDigit = 0;
+        /*
+         * ✅ 숫자 이어붙이기 구현 방식 2가지
+         *
+         * [1] 정수 연산 방식 (곱셈 누적: odd = odd * 10 + num)
+         *  - 장점: 가장 빠름 (0.02~0.03ms)
+         *  - 단점:
+         *     • 숫자가 길어질 경우 int 범위를 초과할 수 있음
+         *     • 연결된 숫자의 의미가 코드상 잘 안 드러남
+         *  - 사용 예시:
+         *     • 입력이 항상 1자리 숫자로 제한된 경우 (예: [3, 5, 7])
+         *     • 성능이 아주 중요한 반복문 내부
+         *
+         * [2] 문자열 방식 (StringBuilder + parseInt)
+         *  - 장점:
+         *     • "숫자를 이어붙인다"는 의도가 코드에서 명확하게 드러남
+         *     • 자리수가 길어져도 예외 없이 표현 가능 (단, int 범위 내면 parseInt 가능)
+         *  - 단점:
+         *     • parseInt()는 문자열이 비어 있으면 예외 발생 가능
+         *     • 성능이 살짝 떨어짐 (0.04~0.06ms)
+         *  - 사용 예시:
+         *     • 구현 의도를 명확히 보여줘야 할 때 (가독성 우선)
+         *     • 단순한 문제에서 성능보다 이해하기 쉬운 코드가 중요한 경우
+         *
+         * ✅ 정리:
+         *  - 속도가 최우선이면 → 정수 연산 방식
+         *  - 가독성과 유지보수성이 중요하면 → 문자열 방식
+         */
+        int odd = 0, even = 0;
         for (int num : num_list) {
             if (num % 2 == 1) {
-                odd = odd * 10;
+                odd *= 10;
                 odd += num;
-                oddDigit++;
             } else {
-                even = even * 10;
+                even *= 10;
                 even += num;
-                evenDigit++;
             }
         }
         return odd + even;
