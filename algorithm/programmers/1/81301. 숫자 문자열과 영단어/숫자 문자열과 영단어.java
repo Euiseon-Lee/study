@@ -3,7 +3,7 @@ class Solution {
         String[] nums = {"zero", "one", "two", "three", "four", "five", "six", "seven"
                       , "eight", "nine"};
         for (int i = 0; i < nums.length; i++) {
-            s = s.replaceAll(nums[i], Integer.toString(i));
+            s = s.replace(nums[i], Integer.toString(i));
         }
         return Integer.parseInt(s);
     }
