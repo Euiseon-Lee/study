@@ -68,10 +68,10 @@ class Solution {
      *     입력 수가 많거나 수가 클수록 성능 향상이 유의미함
      */
     public boolean isPrime (int target) {
-        if (n == 2) return true;
-        if (n < 2 || n % 2 == 0) return false;
-        for (int i = 3; i <= Math.sqrt(n); i += 2) {
-            if (n % i == 0) return false;
+        if (target == 2) return true;
+        if (target < 2 || target % 2 == 0) return false;
+        for (int i = 3; i <= Math.sqrt(target); i += 2) {
+            if (target % i == 0) return false;
         }
         return true;
         /* 기존 코드
