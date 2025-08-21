@@ -1,22 +1,34 @@
-import java.io.IOException;
-import java.util.Scanner;
+import java.io.*;
+import java.util.*;
 
 public class Main {
-    public static void main(String[] args) throws IOException {
-        Scanner sc = new Scanner(System.in);
-        int m = sc.nextInt();
-        int n = sc.nextInt();
-        for (int i = m; i <= n; i++) {
-            if (isPrime(i)) System.out.println(i);
+    public static void main(String[] args) throws Exception {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st = new StringTokenizer(br.readLine());
+        int m = Integer.parseInt(st.nextToken());
+        int n = Integer.parseInt(st.nextToken());
+
+        boolean[] isPrime = sieve(n);
+
+        StringBuilder out = new StringBuilder();
+        for (int i = Math.max(m, 2); i <= n; i++) {
+            if (isPrime[i]) out.append(i).append('\n');
         }
+        System.out.print(out.toString());
     }
 
-    public static boolean isPrime (int n) {
-        if (n == 2) return true;
-        if (n < 2 || n % 2 == 0) return false;
-        for (int i = 3; i <= Math.sqrt(n); i += 2) {
-            if (n % i == 0) return false;
+    private static boolean[] sieve(int n) {
+        boolean[] isPrime = new boolean[n + 1];
+        Arrays.fill(isPrime, true);
+        if (n >= 0) isPrime[0] = false;
+        if (n >= 1) isPrime[1] = false;
+
+        for (int i = 2; i * i <= n; i++) {
+            if (!isPrime[i]) continue;
+            for (int j = i * i; j <= n; j += i) {
+                isPrime[j] = false;
+            }
         }
-        return true;
+        return isPrime;
     }
 }
