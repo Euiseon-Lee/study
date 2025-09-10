@@ -4,22 +4,19 @@ import java.io.InputStreamReader;
 
 public class Main {
     public static void main(String[] args) throws IOException {
-        final String fourWord = "AAAA";
-        final String twoWord = "BB";
+        final String POLY_A = "AAAA";
+        final String POLY_B = "BB";
 
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        String str = br.readLine();
-        while(str.contains("XXXX")) {
-            str = str.replace("XXXX", fourWord);
-        }
-        while(str.contains("XX")) {
-            str = str.replace("XX", twoWord);
-        }
+        String s = br.readLine();
 
-        if (str.contains("X")) {
+        s = s.replace("XXXX", POLY_A)
+             .replace("XX", POLY_B);
+
+        if (s.indexOf('X') >= 0) {
             System.out.println(-1);
-            return;
+        } else {
+            System.out.println(s);
         }
-        System.out.println(str);
     }
 }
