@@ -49,6 +49,7 @@ public class Main {
             int target = Integer.parseInt(st.nextToken());
             sb.append(cards.getOrDefault(target, 0)).append(" ");
         }
-        System.out.println(sb.toString());
+        System.out.println(sb);
     }
 }
+
