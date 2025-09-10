@@ -14,29 +14,26 @@ public class Main {
         for (int i = 0; i < totalDays; i++) {
             visitors[i] = Integer.parseInt(st.nextToken());
         }
-        int startSum = 0;
-        for (int i = 0; i < checkDays; i++) {
-            startSum += visitors[i];
-        }
-        int maxVisitors = startSum;
-        int sameVisitors = 1;
-        int compareSum = startSum;
-        for (int i = 1; i <= totalDays - checkDays; i++) {
-            compareSum = compareSum - visitors[i - 1] + visitors[i + checkDays - 1];
-            if (compareSum > maxVisitors) {
-                maxVisitors = compareSum;
-                sameVisitors = 1;
-            } else if (compareSum == maxVisitors){
-                sameVisitors++;
+        long windowSum = 0;
+        for (int i = 0; i < checkDays; i++) windowSum += visitors[i];
+
+        long maxVisitors = windowSum;
+        int maxCount = (maxVisitors > 0) ? 1 : 1; // 초기 윈도우도 1회로 카운트
+        for (int i = checkDays; i < totalDays; i++) {
+            windowSum += visitors[i] - visitors[i - checkDays];
+            if (windowSum > maxVisitors) {
+                maxVisitors = windowSum;
+                maxCount = 1;
+            } else if (windowSum == maxVisitors) {
+                maxCount++;
             }
-            startSum = compareSum;
         }
+
         if (maxVisitors == 0) {
             System.out.println("SAD");
         } else {
             System.out.println(maxVisitors);
-            System.out.println(sameVisitors);
+            System.out.println(maxCount);
         }
     }
-
 }
