@@ -8,11 +8,11 @@ public class Main {
         for (int i = 0; i < 10; i++) {
             remainder[Integer.parseInt(br.readLine()) % devider] = true;
         }
-        int anwser = 0;
+        int answer = 0;
         for (boolean i : remainder) {
-            if (i) anwser++;
+            if (i) answer++;
         }
-        System.out.println(anwser);
+        System.out.println(answer);
     }
 
 }
