@@ -2,30 +2,20 @@ import java.io.*;
 import java.util.*;
 
 public class Main {
-    public static void main(String[] args) throws Exception {
+    public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st = new StringTokenizer(br.readLine());
-        int prev = Integer.parseInt(st.nextToken());
-        boolean ascending = false;
-        boolean descending = false;
-        boolean mixed = false;
-        for (int i = 1; i < 8; i++) {
-            int current = Integer.parseInt(st.nextToken());
-            if (current > prev) {
-                ascending = true;
-            } else if (current < prev) {
-                descending = true;
-            }
-            if (ascending && descending) {
-                mixed = true;
-                break;
-            }
-            prev = current;
+        int[] arr = new int[8];
+        for (int i = 0; i < 8; i++) {
+            arr[i] = Integer.parseInt(st.nextToken());
         }
-        if (mixed) {
-            System.out.print("mixed");
+
+        if (Arrays.equals(arr, new int[]{1,2,3,4,5,6,7,8})) {
+            System.out.println("ascending");
+        } else if (Arrays.equals(arr, new int[]{8,7,6,5,4,3,2,1})) {
+            System.out.println("descending");
         } else {
-            System.out.print(ascending ? "ascending" : "descending");
+            System.out.println("mixed");
         }
     }
 }
