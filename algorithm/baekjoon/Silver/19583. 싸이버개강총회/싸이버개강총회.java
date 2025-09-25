@@ -9,7 +9,7 @@ public class Main {
         int e = Integer.parseInt(st.nextToken().replace(":",""));
         int q = Integer.parseInt(st.nextToken().replace(":",""));
         String line;
-        HashSet<String> set = new HashSet();
+        HashSet<String> set = new HashSet<>();
         int count = 0;
         while ((line = br.readLine()) != null) {
             st = new StringTokenizer(line);
