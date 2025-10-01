@@ -8,25 +8,30 @@ public class Main {
         String word = br.readLine();
         int index = 0;
         int count = 0;
+
         while (index < word.length()) {
             char ch = word.charAt(index);
-            if (index != word.length() - 1) {
+            if (index < word.length() - 1) {
                 char chNext = word.charAt(index + 1);
-                if (ch == 'c' || ch == 's' || ch == 'z') {
-                    if (chNext== '=' || chNext== '-') index++;
+                if (ch == 'c' && (chNext == '=' || chNext == '-')) {
+                    index++;
                 } else if (ch == 'd') {
-                    if (chNext== '-') {
+                    if (chNext == '-') {
                         index++;
-                    } else if (index + 2 <= word.length() - 1) {
-                        if (chNext== 'z' && word.charAt(index + 2) == '=') index += 2;
+                    } else if (index + 2 < word.length()) {
+                        if (chNext == 'z' && word.charAt(index + 2) == '=') {
+                            index += 2;
+                        }
                     }
-                } else if (ch == 'n' || ch == 'l') {
-                    if (chNext== 'j') index++;
+                } else if ((ch == 'l' || ch == 'n') && chNext == 'j') {
+                    index++;
+                } else if ((ch == 's' || ch == 'z') && chNext == '=') {
+                    index++;
                 }
             }
             index++;
             count++;
         }
-        System.out.print(count);
+        System.out.println(count);
     }
 }
