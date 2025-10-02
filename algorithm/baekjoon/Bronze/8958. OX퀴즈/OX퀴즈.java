@@ -6,24 +6,24 @@ public class Main {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         int n = Integer.parseInt(br.readLine());
-        int answer = 0;
-        int weight = 0;
         StringBuilder sb = new StringBuilder();
+
         for (int i = 0; i < n; i++) {
             String score = br.readLine();
+            int streak = 0;
+            int totalScore = 0;
+
             for (int j = 0; j < score.length(); j++) {
-                char ch = score.charAt(j);
-                if (ch == 'O') {
-                    weight += 1;
-                    answer += weight;
+                if (score.charAt(j) == 'O') {
+                    streak++;
+                    totalScore += streak;
                 } else {
-                    weight = 0;
+                    streak = 0;
                 }
             }
-            sb.append(answer + "\n");
-            weight = 0;
-            answer = 0;
+            sb.append(totalScore).append('\n');
         }
-        System.out.println(sb);
+
+        System.out.print(sb);
     }
 }
