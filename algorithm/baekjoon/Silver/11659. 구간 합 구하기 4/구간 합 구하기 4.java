@@ -1,29 +1,29 @@
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
+import java.io.*;
 import java.util.StringTokenizer;
 
 public class Main {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+
         StringTokenizer st = new StringTokenizer(br.readLine());
         int n = Integer.parseInt(st.nextToken());
         int m = Integer.parseInt(st.nextToken());
-        int[] weight = new int[n];
-        int sum = 0;
+
+        int[] prefix = new int[n + 1]; // 1-index
         st = new StringTokenizer(br.readLine());
-        for (int i = 0; i < n; i++) {
-            sum += Integer.parseInt(st.nextToken());
-            weight[i] = sum;
+        for (int i = 1; i <= n; i++) {
+            prefix[i] = prefix[i - 1] + Integer.parseInt(st.nextToken());
         }
-        StringBuilder sb = new StringBuilder();
+
         for (int i = 0; i < m; i++) {
             st = new StringTokenizer(br.readLine());
-            int start = Integer.parseInt(st.nextToken()) - 1;
-            int end = Integer.parseInt(st.nextToken()) - 1;
-            int val = start == 0 ? 0 : weight[start - 1];
-            sb.append(weight[end] - val).append("\n");
+            int s = Integer.parseInt(st.nextToken());
+            int e = Integer.parseInt(st.nextToken());
+            bw.write((prefix[e] - prefix[s - 1]) + "\n");
         }
-        System.out.println(sb);
+
+        bw.flush();
+        bw.close();
     }
 }
