@@ -1,7 +1,5 @@
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.util.StringTokenizer;
+import java.io.*;
+import java.util.*;
 
 public class Main {
     public static void main(String[] args) throws IOException {
@@ -9,20 +7,25 @@ public class Main {
         StringTokenizer st = new StringTokenizer(br.readLine());
         int n = Integer.parseInt(st.nextToken());
         int m = Integer.parseInt(st.nextToken());
-        int answer = 0;
-        int[] cards = new int[n];
+
+        int[] a = new int[n];
         st = new StringTokenizer(br.readLine());
-        for (int i = 0; i < n; i++) {
-            cards[i] = Integer.parseInt(st.nextToken());
-        }
+        for (int i = 0; i < n; i++) a[i] = Integer.parseInt(st.nextToken());
+
+        Arrays.sort(a);
+
+        int answer = 0;
+        outer:
         for (int i = 0; i < n - 2; i++) {
-            for (int j = i + 1; j < n - 1; j++) {
-                for (int k = j + 1; k < n; k++) {
-                    int sum = cards[i] + cards[j] + cards[k];
-                    if (sum > m) continue;
-                    if (Math.abs(m - answer) > Math.abs(m - sum)) {
-                        answer = sum;
-                    }
+            int j = i + 1, k = n - 1;
+            while (j < k) {
+                int sum = a[i] + a[j] + a[k];
+                if (sum > m) {
+                    k--;
+                } else {
+                    if (sum > answer) answer = sum;
+                    if (answer == m) break outer;
+                    j++;
                 }
             }
         }
