@@ -5,13 +5,20 @@ import java.util.StringTokenizer;
 
 public class Main {
     public static void main(String[] args) throws IOException {
+        final int[] pieces = {1, 1, 2, 2, 2, 8};
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st = new StringTokenizer(br.readLine());
-        int[] pieces = new int[]{1, 1, 2, 2, 2, 8};
         StringBuilder sb = new StringBuilder();
-        for (int i = 0; i < pieces.length; i++) {
+        int read = 0;
+        while (read < 6) {
+            if (!st.hasMoreTokens()) {
+                st = new StringTokenizer(br.readLine());
+                continue;
+            }
             int possess = Integer.parseInt(st.nextToken());
-            sb.append(pieces[i] - possess).append(" ");
+            if (read > 0) sb.append(' ');
+            sb.append(pieces[read] - possess);
+            read++;
         }
         System.out.println(sb);
     }
