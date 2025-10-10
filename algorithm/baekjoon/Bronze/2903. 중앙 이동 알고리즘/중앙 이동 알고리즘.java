@@ -6,6 +6,7 @@ public class Main {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         int n = Integer.parseInt(br.readLine());
-        System.out.println((int) Math.pow((1 + Math.pow(2, n)), 2));
+        int side = (1 << n) + 1;   // 2^n + 1 을 비트 연산으로 계산
+        System.out.println(side * side);
     }
 }
