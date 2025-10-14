@@ -6,32 +6,32 @@ import java.io.BufferedReader;
 public class Main {
     public static void main(String[] args) throws IOException {
 		/**
-		 * 📐 BOJ 4153 - 직각삼각형
+		 * 🏨 BOJ 10250 - ACM 호텔 (층/호수 매핑)
 		 *
 		 * 📌 문제 요약
-		 * - 세 변 a, b, c가 주어질 때 직각삼각형인지 판정한다.
-		 * - 입력이 "0 0 0"이면 종료.
+		 * - 호텔 H층, 각 층 W개 방. 손님 N번째 도착 시 위층부터 채워 배정.
+		 * - 출력 형식: YYXX (층*100 + 호)
 		 *
-		 * 🧠 핵심 아이디어
-		 * - 세 변 중 가장 긴 변을 z라 할 때, x^2 + y^2 == z^2 이면 직각.
-		 * - 세 변을 정렬하여 s[2]를 최댓값으로 두면 조건문 1개로 판정 가능.
+		 * 🧠 핵심 수식 (1-based 순번 → 2차원 좌표)
+		 * - y = (N - 1) % H + 1   // 층
+		 * - x = (N - 1) / H + 1   // 호
+		 * - answer = y * 100 + x
 		 *
 		 * 🧱 로직 구조
-		 * 1) 한 줄 읽고 a,b,c 파싱 → 모두 0이면 종료
-		 * 2) 세 변을 정렬: int[] s = {a,b,c}; Arrays.sort(s)
-		 * 3) x^2 + y^2 == z^2 ? "right" : "wrong" 출력
+		 * 1) T번 반복:
+		 *    - 입력: H, W(미사용), N
+		 *    - y, x 계산 후 answer 출력
 		 *
 		 * ⏱️ 복잡도
-		 * - 각 케이스 O(1) (정렬을 써도 고정 3개 → 상수 시간)
+		 * - 각 테스트 O(1), 총 O(T)
 		 *
 		 * ✅ 장점
-		 * - 정렬 후 단일 조건으로 가독성↑, 중복 연산↓
-		 * - StringBuilder 누적으로 I/O 호출 최소화
+		 * - (N-1) 보정으로 if/else 없이 수식 한 번에 해결 가능
+		 * - StringBuilder로 I/O 호출 최소화
 		 *
-		 * ⚠️ 보완 포인트
-		 * - 제곱 연산은 잠재적 오버플로를 고려해 long 캐스팅 후 비교 권장
-		 *   (문제 입력 범위에선 int로도 통과하나, 습관적으로 안전하게)
-		 * - 입력 라인 단위로 읽고 종료 조건을 먼저 판단하면 while 조건이 더 명확해짐
+		 * ⚠️ 주의
+		 * - W는 계산에 사용되지 않음(문제 규칙상 위층부터 채움)
+		 * - N % H == 0 처리도 수식으로 자연스럽게 해결됨
 		 */
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringBuilder sb = new StringBuilder();
@@ -48,3 +48,5 @@ public class Main {
         System.out.print(sb);
     }
 }
+
+
