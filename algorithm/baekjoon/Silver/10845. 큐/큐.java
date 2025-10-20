@@ -1,54 +1,41 @@
+import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.io.BufferedReader;
 import java.util.ArrayDeque;
 import java.util.Deque;
-import java.util.StringTokenizer;
 
 public class Main {
-	public static void main(String[] args) throws IOException {
-		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        StringTokenizer st;
+    public static void main(String[] args) throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         int n = Integer.parseInt(br.readLine());
-        Deque<Integer> dq = new ArrayDeque<>();
+        Deque<Integer> q = new ArrayDeque<>(n);
         StringBuilder sb = new StringBuilder();
+
         for (int i = 0; i < n; i++) {
-            String command = br.readLine();
-            switch (command) {
+            String cmd = br.readLine();
+            if (cmd.startsWith("push")) {
+                q.addLast(Integer.parseInt(cmd.substring(5)));
+                continue;
+            }
+            switch (cmd) {
                 case "pop":
-                    if (!dq.isEmpty()) {
-                        sb.append(dq.pollLast());
-                    } else {
-                        sb.append(-1);
-                    }
+                    sb.append(q.isEmpty() ? -1 : q.pollFirst()).append('\n');
                     break;
                 case "size":
-                    sb.append(dq.size());
+                    sb.append(q.size()).append('\n');
                     break;
                 case "empty":
-                    sb.append(dq.isEmpty() ? 1 : 0);
+                    sb.append(q.isEmpty() ? 1 : 0).append('\n');
                     break;
                 case "front":
-                    if (!dq.isEmpty()) {
-                        sb.append(dq.peekLast());
-                    } else {
-                        sb.append(-1);
-                    }
+                    sb.append(q.isEmpty() ? -1 : q.peekFirst()).append('\n');
                     break;
                 case "back":
-                    if (!dq.isEmpty()) {
-                        sb.append(dq.peekFirst());
-                    } else {
-                        sb.append(-1);
-                    }
+                    sb.append(q.isEmpty() ? -1 : q.peekLast()).append('\n');
                     break;
                 default:
-                    st = new StringTokenizer(command);
-                    st.nextToken();
-                    dq.addFirst(Integer.parseInt(st.nextToken()));
                     break;
             }
-            if (!command.contains("push")) sb.append('\n');
         }
         System.out.print(sb);
     }
