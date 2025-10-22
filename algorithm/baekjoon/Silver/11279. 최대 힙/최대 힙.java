@@ -34,11 +34,11 @@ public class Main {
          * - 우선순위 작업 스케줄링, 이벤트 타임라인 관리, 실시간 최대값/최소값 유지
          * - 동적 정렬이 필요할 때 배열 정렬보다 효율적 (특히 삽입·삭제 빈번한 경우)
          */
-        final BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        final int n = Integer.parseInt(br.readLine());
-
-        final PriorityQueue<Integer> maxHeap = new PriorityQueue<>(Collections.reverseOrder());
-        final StringBuilder sb = new StringBuilder();
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        int n = Integer.parseInt(br.readLine());
+        
+        PriorityQueue<Integer> maxHeap = new PriorityQueue<>(Collections.reverseOrder());
+        StringBuilder sb = new StringBuilder();
 
         for (int i = 0; i < n; i++) {
             int x = Integer.parseInt(br.readLine());
@@ -51,3 +51,4 @@ public class Main {
         System.out.print(sb);
     }
 }
+
