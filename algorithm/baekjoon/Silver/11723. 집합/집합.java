@@ -63,8 +63,8 @@ public class Main {
         int bit = 0;
 
         for (int i = 0; i < n; i++) {
-            final StringTokenizer st = new StringTokenizer(br.readLine());
-            final String cmd = st.nextToken();
+            StringTokenizer st = new StringTokenizer(br.readLine());
+            String cmd = st.nextToken();
             int x;
 
             switch (cmd) {
@@ -95,4 +95,5 @@ public class Main {
         System.out.print(sb);
     }
 }
+
 
