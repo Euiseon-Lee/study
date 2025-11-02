@@ -6,11 +6,18 @@ public class Main {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         long n = Long.parseLong(br.readLine());
-        int cat = 0;
-        while (n > 3) {
-            cat++;
-            n = (n / 2) + (n % 2);
+
+        if (n == 0) {
+            System.out.println(0);
+            return;
         }
-        System.out.print(cat + n);
+
+        long steps = 1;
+        long cats  = 1;
+        while (cats < n) {
+            cats <<= 1;
+            steps++;
+        }
+        System.out.print(steps);
     }
 }
