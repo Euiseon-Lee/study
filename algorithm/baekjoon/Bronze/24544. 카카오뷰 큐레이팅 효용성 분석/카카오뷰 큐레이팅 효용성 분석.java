@@ -13,11 +13,12 @@ public class Main {
         StringTokenizer st2 = new StringTokenizer(br.readLine());
         for (int i = 0; i < n; i++) {
             int content = Integer.parseInt(st1.nextToken());
-            boolean isRegistered = Integer.parseInt(st2.nextToken()) == 1 ? true : false;
+            boolean isRegistered = Integer.parseInt(st2.nextToken()) == 1;
             total += content;
             if (!isRegistered) unregistered += content;
         }
         System.out.println(total);
         System.out.print(unregistered);
     }
+
 }
