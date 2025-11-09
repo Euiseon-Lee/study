@@ -8,9 +8,12 @@ public class Main {
         String str = br.readLine();
         String target = br.readLine();
         int count = 0;
-        for (int i = 0; i < str.length() - target.length() + 1; i++) {
-            String cut = str.substring(i, i + target.length());
-            if (cut.contains(target)) count++;
+        int start = 0;
+        int position;
+
+        while ((position = str.indexOf(target, start)) != -1) {
+            count++;
+            start = position + target.length();
         }
         System.out.print(count);
     }
