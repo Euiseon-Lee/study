@@ -1,17 +1,18 @@
-import java.util.*;
+import java.util.HashMap;
+import java.util.Map;
+
 class Solution {
     public int[] solution(String[] name, int[] yearning, String[][] photo) {
-        Map<String, Integer> map = new HashMap<>();
-        for (int i=0; i<name.length; i++) {
-            map.put(name[i], yearning[i]);
+        Map<String, Integer> scoreByName = new HashMap<>();
+        for (int i = 0; i < name.length; i++) {
+            scoreByName.put(name[i], yearning[i]);
         }
-        int size = photo.length;
-        int[] answer = new int[size];
-        for (int i=0; i<size; i++) {
-            String[] arr = photo[i];
+
+        int[] answer = new int[photo.length];
+        for (int i = 0; i < photo.length; i++) {
             int score = 0;
-            for (int j=0; j<arr.length; j++) {
-                score += map.getOrDefault(arr[j], 0);
+            for (String person : photo[i]) {
+                score += scoreByName.getOrDefault(person, 0);
             }
             answer[i] = score;
         }
